@@ -1,0 +1,17 @@
+# ── Core (required in all environments) ──────────────────────────────────────
+numpy>=1.26
+sentence-transformers>=2.7
+faiss-cpu>=1.8
+requests>=2.32
+
+# ── Development inference backend only ───────────────────────────────────────
+# Uncomment when using HuggingFaceBackend (Kaggle / Colab / GPU machine).
+# NOT required for production (LlamaCppBackend needs only `requests`).
+# NOT required for running tests.
+# transformers>=4.40
+# accelerate>=0.30
+# torch>=2.2
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=8.0
+pytest-cov>=5.0

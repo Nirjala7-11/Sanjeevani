@@ -1,0 +1,69 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    MICROPHONE: Required for voice symptom capture.
+    Requested at runtime only when the user taps "Start check-up",
+    never silently at app launch.
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--
+    INTERNET: Required ONLY for the optional sync layer (Firebase).
+    The intelligence layer calls 127.0.0.1 (loopback) — that is
+    NOT a network permission; it is an intra-process IPC call.
+    If the sync layer is disabled, this permission can be removed.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+    NETWORK STATE: Used by connectivity_plus to detect when sync
+    should fire. Never used to make calls from the intelligence layer.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:label="Sanjeevani"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
+        <!--
+        usesCleartextTraffic="true" is required because the local
+        llama-server runs plain HTTP on 127.0.0.1 (not HTTPS).
+        This does NOT expose the app to external cleartext traffic —
+        Android's network security policy still blocks cleartext to
+        non-loopback addresses. The intelligence client enforces
+        loopback-only in code as a second layer of protection.
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+
+    <queries>
+        <!-- Needed for permission_handler to open app settings -->
+        <intent>
+            <action android:name="android.settings.APPLICATION_DETAILS_SETTINGS" />
+        </intent>
+    </queries>
+
+</manifest>

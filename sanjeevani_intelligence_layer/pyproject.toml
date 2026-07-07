@@ -1,0 +1,17 @@
+[project]
+name            = "sanjeevani-intelligence"
+version         = "1.0.0"
+description     = "Offline-first, RAG-grounded clinical decision-support intelligence layer for rural health workers"
+requires-python = ">=3.10"
+license         = { text = "Proprietary" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
+
+[tool.coverage.run]
+source  = ["sanjeevani"]
+omit    = ["tests/*"]
+
+[tool.coverage.report]
+fail_under = 85

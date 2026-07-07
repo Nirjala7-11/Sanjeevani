@@ -1,0 +1,29 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "visit_summaries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "visit_date", "order": "DESCENDING" },
+        { "fieldPath": "risk_level", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "visit_summaries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "village_hash", "order": "ASCENDING" },
+        { "fieldPath": "visit_date",   "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "visit_summaries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "referral_needed", "order": "ASCENDING" },
+        { "fieldPath": "visit_date",      "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -1,0 +1,11 @@
+node_modules/
+functions/node_modules/
+dashboard/node_modules/
+dashboard/dist/
+.firebase/
+.env
+.env.*
+*.key
+serviceAccountKey.json
+firebase-debug.log
+firestore-debug.log

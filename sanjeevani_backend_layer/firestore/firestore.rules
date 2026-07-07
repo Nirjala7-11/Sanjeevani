@@ -1,0 +1,82 @@
+// Firestore Security Rules — Sanjeevani backend
+//
+// Design contract:
+//   - The app writes ONLY anonymized visit summaries (no patient names,
+//     no transcripts, no exact ages, no phone numbers).
+//   - All writes come from authenticated app instances via a service account.
+//   - The PHC dashboard reads aggregated collections in read-only mode.
+//   - No client (Flutter app, browser) may read raw visit documents.
+//     Only Cloud Functions may read them for aggregation.
+//   - No document may be updated or deleted by any client — append-only.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Anonymized visit summaries ──────────────────────────────────────────
+    // Written by the Flutter app (via service account auth).
+    // Read by Cloud Functions only — no direct client reads.
+    match /visit_summaries/{docId} {
+      allow create: if
+        request.auth != null &&
+        request.auth.token.app_instance == true &&
+        isValidVisitSummary(request.resource.data);
+
+      // No client reads of raw visit documents.
+      // Only Cloud Functions (admin SDK) may read these.
+      allow read: if false;
+
+      // Immutable — no updates or deletes from any client.
+      allow update, delete: if false;
+    }
+
+    // ── Aggregated statistics (written by Cloud Functions, read by dashboard)
+    match /aggregations/{docId} {
+      // Only Cloud Functions (running as admin) may write aggregations.
+      allow write: if false;
+
+      // Dashboard reads are allowed — aggregations contain no PII.
+      allow read: if request.auth != null;
+    }
+
+    // ── ASHA worker registration (no patient data here)
+    match /asha_workers/{workerId} {
+      allow read, write: if
+        request.auth != null &&
+        request.auth.uid == workerId;
+    }
+
+    // Default: deny everything else.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ── Schema validation functions ─────────────────────────────────────────
+    function isValidVisitSummary(data) {
+      return
+        // Required fields present
+        data.keys().hasAll([
+          'visit_date', 'risk_level', 'referral_needed',
+          'age_bracket', 'village_hash', 'gender', 'asha_id', 'synced_at'
+        ]) &&
+
+        // No PII fields allowed
+        !data.keys().hasAny([
+          'name', 'patient_name', 'phone', 'phone_number',
+          'transcript', 'exact_age', 'village', 'address'
+        ]) &&
+
+        // Type checks
+        data.risk_level is string &&
+        data.risk_level in ['low', 'medium', 'high'] &&
+        data.referral_needed is bool &&
+        data.age_bracket in ['0-5', '6-18', '19-60', '60+'] &&
+        data.gender in ['male', 'female', 'other'] &&
+        data.village_hash is string &&
+        data.village_hash.size() == 8 &&
+        data.visit_date is string &&
+        data.visit_date.size() == 10; // YYYY-MM-DD only, no time
+    }
+  }
+}

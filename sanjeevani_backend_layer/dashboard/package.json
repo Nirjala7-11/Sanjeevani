@@ -1,0 +1,22 @@
+{
+  "name": "sanjeevani-dashboard",
+  "version": "1.0.0",
+  "description": "PHC read-only dashboard for Sanjeevani aggregated health data",
+  "private": true,
+  "dependencies": {
+    "react":          "^18.3.1",
+    "react-dom":      "^18.3.1",
+    "chart.js":       "^4.4.3",
+    "react-chartjs-2":"^5.2.0"
+  },
+  "devDependencies": {
+    "vite":              "^5.3.4",
+    "@vitejs/plugin-react": "^4.3.1"
+  },
+  "scripts": {
+    "dev":   "vite",
+    "build": "vite build",
+    "test":  "node --test src/utils/__tests__/"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}

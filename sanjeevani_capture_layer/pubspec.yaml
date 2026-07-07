@@ -1,0 +1,49 @@
+name: sanjeevani_capture
+description: >
+  Capture layer for the Sanjeevani offline health assistant.
+  Handles microphone permissions, audio recording, offline speech-to-text,
+  transcript sanitization, vitals input, and intelligence layer handoff.
+version: 1.0.0
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Audio recording — mic capture, amplitude stream, format conversion
+  flutter_sound: ^9.2.13
+
+  # Permission handling — mic, storage
+  permission_handler: ^11.3.0
+
+  # HTTP client — calls the local llama-server on 127.0.0.1
+  http: ^1.2.1
+
+  # Local structured storage — patient records, visit logs
+  sqflite: ^2.3.3
+  path: ^1.9.0
+
+  # Connectivity state — know when sync layer can fire
+  connectivity_plus: ^6.0.3
+
+  # State management — clean, minimal, testable
+  provider: ^6.1.2
+
+  # Logging — structured, rotated
+  logging: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.2
+  mockito: ^5.4.4
+  build_runner: ^2.4.9
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/models/vosk-model-small-hi-0.22/
+    - assets/models/vosk-model-small-gu-0.42/

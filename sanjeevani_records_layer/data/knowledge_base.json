@@ -1,0 +1,74 @@
+[
+  {
+    "id": "IMNCI-3.1-tachycardia",
+    "text": "Tachycardia — heart rate above 100 bpm — may indicate fever, dehydration, anaemia, or infection. When sustained and accompanied by low oxygen saturation, treat as urgent and refer immediately to a health facility.",
+    "source_ref": "IMNCI Guidelines, Section 3.1",
+    "tags": ["tachycardia", "heart_rate", "dehydration", "infection"]
+  },
+  {
+    "id": "IMNCI-3.2-critical-hr",
+    "text": "A heart rate above 130 bpm at rest, without an obvious cause such as active fever or recent exertion, warrants urgent clinical evaluation for cardiac arrhythmia or severe systemic illness.",
+    "source_ref": "ICMR Standard Treatment Guidelines, Section 3.2",
+    "tags": ["tachycardia", "cardiac", "arrhythmia", "critical"]
+  },
+  {
+    "id": "IMNCI-4.2-spo2-low",
+    "text": "SpO2 below 92% indicates hypoxaemia and is a red-flag sign requiring urgent referral, especially in children under 5 and elderly patients. Normal SpO2 is 95 to 100 percent.",
+    "source_ref": "IMNCI Guidelines, Section 4.2",
+    "tags": ["spo2", "hypoxaemia", "oxygen", "red_flag", "children", "elderly"]
+  },
+  {
+    "id": "IMNCI-4.3-spo2-critical",
+    "text": "SpO2 at or below 85%, or cyanosis — bluish discolouration of lips or fingertips — is a medical emergency. The patient requires immediate transport to the nearest facility capable of oxygen administration.",
+    "source_ref": "IMNCI Guidelines, Section 4.3",
+    "tags": ["spo2", "cyanosis", "critical", "emergency", "oxygen"]
+  },
+  {
+    "id": "IMNCI-2.4-fever-child",
+    "text": "Fever above 100.4°F in a child under 5, combined with fast or difficult breathing, is a danger sign for pneumonia. Refer to the nearest health facility on the same day.",
+    "source_ref": "IMNCI Guidelines, Section 2.4",
+    "tags": ["fever", "pneumonia", "children", "breathing", "red_flag"]
+  },
+  {
+    "id": "IMNCI-4.5-combined-critical",
+    "text": "High fever, elevated heart rate, and low SpO2 occurring together strongly suggest a severe respiratory infection or sepsis. This combination requires urgent referral.",
+    "source_ref": "IMNCI Guidelines, Section 4.5",
+    "tags": ["fever", "heart_rate", "spo2", "respiratory", "sepsis", "urgent"]
+  },
+  {
+    "id": "ICMR-1.3-mild-fever",
+    "text": "Mild fever (100.4 to 101°F) with normal SpO2 and normal heart rate may be managed at home: rest, oral fluids, and paracetamol at the correct weight-based dose. Reassess in 24 hours.",
+    "source_ref": "ICMR Standard Treatment Guidelines, Section 1.3",
+    "tags": ["fever", "mild", "home_management", "paracetamol"]
+  },
+  {
+    "id": "ICMR-6.1-fever-pregnancy",
+    "text": "Any fever in a pregnant woman requires same-day assessment at a health facility. High fever during pregnancy carries risk of preterm labour, fetal distress, and maternal sepsis.",
+    "source_ref": "ICMR Standard Treatment Guidelines, Section 6.1",
+    "tags": ["fever", "pregnancy", "antenatal", "red_flag", "maternal"]
+  },
+  {
+    "id": "IMNCI-5.1-diarrhoea",
+    "text": "Diarrhoea with signs of dehydration — sunken eyes, dry mouth, skin pinch returns slowly, reduced urination — in a child: start ORS immediately. If the child cannot drink or has blood in stool, refer urgently.",
+    "source_ref": "IMNCI Guidelines, Section 5.1",
+    "tags": ["diarrhoea", "dehydration", "ors", "children"]
+  },
+  {
+    "id": "IMNCI-2.1-danger-signs",
+    "text": "IMNCI danger signs in children under 5 requiring immediate referral: unable to drink or breastfeed, vomiting everything, convulsions, lethargic or unconscious, stridor at rest. Any one sign is sufficient to require same-day referral.",
+    "source_ref": "IMNCI Guidelines, Section 2.1",
+    "tags": ["danger_signs", "children", "consciousness", "convulsion", "emergency"]
+  },
+  {
+    "id": "ICMR-7.4-elderly-fever",
+    "text": "In patients over 60, fever combined with altered consciousness, persistent confusion, or inability to stand should be treated as a medical emergency, regardless of absolute temperature. Refer immediately.",
+    "source_ref": "ICMR Standard Treatment Guidelines, Section 7.4",
+    "tags": ["elderly", "fever", "consciousness", "red_flag"]
+  },
+  {
+    "id": "IMNCI-5.2-malaria-dengue",
+    "text": "In malaria or dengue-endemic areas, fever with severe headache, joint pain, rash, or rigors: collect a rapid diagnostic test sample and refer if positive or if patient is deteriorating.",
+    "source_ref": "IMNCI Guidelines, Section 5.2",
+    "tags": ["malaria", "dengue", "fever", "headache", "rdt", "endemic"]
+  }
+]
