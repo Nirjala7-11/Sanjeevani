@@ -17,7 +17,7 @@ AI-Powered Offline Diagnostic Assistant for Rural Healthcare Workers
 ## 📱 Download APK
 
 ➡️ **Download the latest APK here:**
-https://github.com/Nirjala7-11/Sanjeevani/releases/tag/v1.0
+https://github.com/Nirjala7-11/Sanjeevani/releases/latest
 
 # 📖 Table of Contents
 
