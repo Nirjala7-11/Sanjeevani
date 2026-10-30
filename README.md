@@ -450,8 +450,9 @@ It is **not intended to replace licensed medical professionals** and should be u
 
 # 📄 License
 
-This project is developed for academic and research purposes under the **Dewang Mehta IT Award (DMIT) 2026**.
+This project is developed for academic and research purposes.
 
 ---
 
 ## ⭐ If you found this project interesting, consider giving it a star!
+## Do give suggestion and improvisation.
